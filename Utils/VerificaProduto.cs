@@ -18,6 +18,7 @@ namespace CrawlerDados.Utils
             string senha = "60-dayfreetrial";
             string url = "http://regymatrix-001-site1.ktempurl.com/api/v1/produto/getall";
 
+            Benchmarking benchmarking = new Benchmarking();
             try
             {
                 ApiClient apiClient = new ApiClient(username, senha);
@@ -49,7 +50,8 @@ namespace CrawlerDados.Utils
                             // Obter preço do Mercado Livre
                             var precoMercadoLivre = mercadoLivreScraper.ObterPreco(produto.Nome, produto.Id);
 
-                            
+                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome);
+
                         }
                         
                     }
