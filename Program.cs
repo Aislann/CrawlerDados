@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using CrawlerDados.Data;
 using CrawlerDados.Utils;
+using CrawlerDados.Models;
 
 class Program
 {

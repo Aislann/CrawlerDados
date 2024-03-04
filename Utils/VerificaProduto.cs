@@ -13,10 +13,23 @@ namespace CrawlerDados.Utils
         static List<Produto> produtosVerificados = new List<Produto>();
         public static void VerificarNovoProduto(object state)
         {
+            Informations informations = new Informations();
+
+            Console.Write("Digite o destinatario outlook(exemplo@outlook.com) que será enviado as informações: ");
+            string respostaEmail = Console.ReadLine().Trim().ToUpper();
+            informations.Email = respostaEmail;
 
             string username = "11164448";
             string senha = "60-dayfreetrial";
             string url = "http://regymatrix-001-site1.ktempurl.com/api/v1/produto/getall";
+
+            //Console.Write("Deseja enviar uma mensagem pelo WhatsApp? (S/N): ");
+            //string resposta = Console.ReadLine().Trim().ToUpper();
+
+                Console.Write("Digite o numero ao qual será enviado a mensagem, nesse exato modelo(5579999999999): ");
+                string respostaTelefone = Console.ReadLine().Trim().ToUpper();
+                informations.Telefone = respostaTelefone;
+
 
             Benchmarking benchmarking = new Benchmarking();
             try
@@ -50,7 +63,7 @@ namespace CrawlerDados.Utils
                             // Obter preço do Mercado Livre
                             var precoMercadoLivre = mercadoLivreScraper.ObterPreco(produto.Nome, produto.Id);
 
-                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome);
+                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome, informations);
 
                         }
                         

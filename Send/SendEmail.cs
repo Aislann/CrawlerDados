@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 public static class SendEmail
 {
 
-    public static void EnviarEmail(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto)
+    public static void EnviarEmail(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, Informations informations)
     {
 
         // Configurações do servidor SMTP do Gmail
@@ -28,7 +28,7 @@ public static class SendEmail
             client.EnableSsl = true; // Habilitar SSL/TLS
 
             // Construir mensagem de e-mail
-            MailMessage mensagem = new MailMessage(remetente, "aislanfake@outlook.com")
+            MailMessage mensagem = new MailMessage(remetente, informations.Email)
             {
                 Subject = "Resultado da comparação de preços",
                 Body = $"Mercado Livre\n" +

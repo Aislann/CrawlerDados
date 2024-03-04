@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CrawlerDados.Models
 {
-    internal class Informations
+    public class Informations
     {
+        public string Email { get; set; }
+        public string Telefone { get; set; }
     }
 }

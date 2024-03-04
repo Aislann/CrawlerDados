@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using System.Net.Http;
+using CrawlerDados.Models;
 
 
 namespace CrawlerDados.Send
@@ -14,13 +15,9 @@ namespace CrawlerDados.Send
 
     public static class SendZap
     {
-        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto)
+        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, Informations informations)
         {
-            bool enviarWhatsapp = UserInput.ObterRespostaEnvioWhatsApp();
 
-
-            if (enviarWhatsapp)
-            {
                 using (HttpClient client = new HttpClient())
                 {
                     // URL da API
@@ -29,8 +26,7 @@ namespace CrawlerDados.Send
                     // Dados da solicitação
                     string apiKey = "977bf93d-d4c5-47af-bd6e-f27d08f6c30a";
                     string phoneNumber = "5579988566494";
-                    Console.Write("Digite o numero ao qual será enviado a mensagem, nesse exato modelo(5579999999999)");
-                    string contactPhoneNumber = Console.ReadLine();
+                    string contactPhoneNumber = informations.Telefone;
                     string messageCustomId = "yoursoftwareid";
                     string messageType = "text";
                     string messageBody = $"Mercado Livre\n" +
@@ -68,14 +64,8 @@ namespace CrawlerDados.Send
                     }
                 }
             }
-            else
-            {
-                Console.WriteLine("Mensagem não enviada. Encerrando o programa.");
-                return;
-            }
+
 
             
         }
     }
-
-}
