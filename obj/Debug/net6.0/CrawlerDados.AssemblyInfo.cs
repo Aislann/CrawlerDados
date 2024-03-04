@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrawlerDados")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b9d3fc60c79d9ef77c7922563fd89bba60b984c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrawlerDados")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrawlerDados")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

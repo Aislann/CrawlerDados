@@ -18,7 +18,6 @@ namespace CrawlerDados.Utils
             string senha = "60-dayfreetrial";
             string url = "http://regymatrix-001-site1.ktempurl.com/api/v1/produto/getall";
 
-            Benchmarking benchmarking = new Benchmarking();
             try
             {
                 ApiClient apiClient = new ApiClient(username, senha);
@@ -26,10 +25,13 @@ namespace CrawlerDados.Utils
 
                 // Processar os dados da resposta
                 List<Produto> novosProdutos = ProdutoManager.ObterNovosProdutos(responseData);
+
+                Informations informations = new Informations();
                 foreach (Produto produto in novosProdutos)
-                {
+                {     
                     if (!produtosVerificados.Exists(p => p.Id == produto.Id))
                     {
+
                         // Se é um novo produto, faça algo com ele
                         Console.WriteLine($"Novo produto encontrado: ID {produto.Id}, Nome: {produto.Nome}");
                         // Adicionar o produto à lista de produtos verificados
@@ -50,7 +52,7 @@ namespace CrawlerDados.Utils
                             // Obter preço do Mercado Livre
                             var precoMercadoLivre = mercadoLivreScraper.ObterPreco(produto.Nome, produto.Id);
 
-                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome);
+                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome, informations);
 
                         }
                         
