@@ -15,7 +15,7 @@ namespace CrawlerDados.Send
 
     public static class SendZap
     {
-        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, Informations informations)
+        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, Informations informations, string NomeProduto)
         {
 
                 using (HttpClient client = new HttpClient())
@@ -29,16 +29,22 @@ namespace CrawlerDados.Send
                     string contactPhoneNumber = informations.Telefone;
                     string messageCustomId = "yoursoftwareid";
                     string messageType = "text";
-                    string messageBody = $"Mercado Livre\n" +
+                    string messageBody = $"Benchmarking: {NomeProduto}\n" +
+                               $"\n" +
+                               $"*Mercado Livre*\n" +
                                $"Produto: {nomeProdutoMercado}\n" +
                                $"Preço: R${precoProdutoMercadoLivre}\n" +
                                $"\n" +
-                               $"Magazine Luiza\n" +
+                               $"*Magazine Luiza*\n" +
                                $"Produto: {nomeProdutoMagalu}" +
                                $"\nPreço: R${precoProdutoMagazineLuiza}\n" +
                                $"\n" +
-                               "Melhor compra:" +
-                               $"\n{melhorCompra} - {urlProduto}";
+                               "*Melhor compra:*" +
+                               $"\n{melhorCompra} - {urlProduto}\n" +
+                               $"\n" +
+                               $"0000001177\n" +
+                               $"Usuário: AislanOliveira";
+
                     string checkStatus = "1";
 
                     // Criar objeto de dados em formato JSON

@@ -25,23 +25,18 @@ public class Benchmarking
 
         if (precoMagalu < precoMercado)
         {
-            Console.WriteLine(precoMagalu);
             LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Menor Valor - Magazine Luiza", "Sucesso", idProduto);
             //Enviar email com o resultado da comparação
-            SendEmail.EnviarEmail(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Magazine Luiza", precoMagazineLuiza.Url, idProduto, informations);
-            SendZap.EnviarZap(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Magazine Luiza", precoMagazineLuiza.Url, idProduto, informations);
+            SendEmail.EnviarEmail(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Magazine Luiza", precoMagazineLuiza.Url, idProduto, EnderecoEmail: Program.Email, NomeProduto);
+            SendZap.EnviarZap(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Magazine Luiza", precoMagazineLuiza.Url, idProduto, informations, NomeProduto);
         }
         else if (precoMercado < precoMagalu)
         {
-            Console.WriteLine(precoMercado);
             LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Menor Valor - Mercado Livre", "Sucesso", idProduto);
-            SendEmail.EnviarEmail(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Mercado Livre", precoMercadoLivre.Url,idProduto, informations);
-            SendZap.EnviarZap(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Mercado Livre", precoMagazineLuiza.Url, idProduto, informations);
-
+            SendEmail.EnviarEmail(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Mercado Livre", precoMercadoLivre.Url,idProduto, EnderecoEmail: Program.Email, NomeProduto);
+            SendZap.EnviarZap(precoMagazineLuiza.Titulo, precoMercadoLivre.Titulo, precoMercado, precoMagalu, "Mercado Livre", precoMagazineLuiza.Url, idProduto, informations, NomeProduto);
         }
-    }
-
-        
+    } 
 
     }
 
