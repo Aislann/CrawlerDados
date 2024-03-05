@@ -18,5 +18,19 @@ namespace CrawlerDados.Models
         public string Processo { get; set; }
         public string InfLog { get; set; }
         public int IdProd { get; set; }
+
+        //public int iDlOG { get; set; }
+
+        //public string CodigoRobo { get; set; }
+
+        //public string UsuarioRobo { get; set; }
+
+        //public DateTime DateLog { get; set; }
+
+        //public string Etapa { get; set; }
+
+        //public string InformacaoLog { get; set; }
+
+        //public int? idProdutoAPI { get; set; }
     }
 }
