@@ -42,7 +42,7 @@ namespace CrawlerDados.Send
                                "*Melhor compra:*" +
                                $"\n{melhorCompra} - {urlProduto}\n" +
                                $"\n" +
-                               $"0000001177\n" +
+                               $"AO24\n" +
                                $"Usuário: AislanOliveira";
 
                     string checkStatus = "1";
@@ -60,8 +60,9 @@ namespace CrawlerDados.Send
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
-                        LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Envio - Whatsapp", "Sucesso", idProduto);
                         Console.WriteLine($"Mensagem enviada com sucesso! ");
+                        LogManager.RegistrarLog("AO24", "AislanOliveira", DateTime.Now, "Envio - Whatsapp", "Sucesso", idProduto);
+                        
                         
                     }
                     else

@@ -31,7 +31,7 @@ class Program
         }
 
         // Definir o intervalo de tempo para 5 minutos (300.000 milissegundos)
-        int intervalo = 60000;
+        int intervalo = 300000;
 
         // Criar um temporizador que dispara a cada 5 minutos
         Timer timer = new Timer(VerificaProduto.VerificarNovoProduto, null, 0, intervalo);
