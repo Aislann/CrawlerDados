@@ -26,14 +26,13 @@ namespace CrawlerDados.Utils
                 // Processar os dados da resposta
                 List<Produto> novosProdutos = ProdutoManager.ObterNovosProdutos(responseData);
 
-                Informations informations = new Informations();
                 foreach (Produto produto in novosProdutos)
                 {     
                     if (!produtosVerificados.Exists(p => p.Id == produto.Id))
                     {
 
                         // Se é um novo produto, faça algo com ele
-                        Console.WriteLine($"Novo produto encontrado: ID {produto.Id}, Nome: {produto.Nome}");
+                        Console.WriteLine($"Novo produto encontrado: ID {produto.Id}, Nome: {produto.Nome}\n");
                         // Adicionar o produto à lista de produtos verificados
                         produtosVerificados.Add(produto);
 
@@ -52,7 +51,7 @@ namespace CrawlerDados.Utils
                             // Obter preço do Mercado Livre
                             var precoMercadoLivre = mercadoLivreScraper.ObterPreco(produto.Nome, produto.Id);
 
-                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome, informations);
+                            Benchmarking.CompararValores(precoMagazineLuiza, precoMercadoLivre, produto.Id, produto.Nome);
 
                         }
                         

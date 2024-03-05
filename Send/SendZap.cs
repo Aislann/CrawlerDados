@@ -15,7 +15,7 @@ namespace CrawlerDados.Send
 
     public static class SendZap
     {
-        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, Informations informations, string NomeProduto)
+        public static async Task EnviarZap(string nomeProdutoMagalu, string nomeProdutoMercado, decimal precoProdutoMercadoLivre, decimal precoProdutoMagazineLuiza, string melhorCompra, string urlProduto, int idProduto, string numTelefone , string NomeProduto)
         {
 
                 using (HttpClient client = new HttpClient())
@@ -26,7 +26,7 @@ namespace CrawlerDados.Send
                     // Dados da solicitação
                     string apiKey = "977bf93d-d4c5-47af-bd6e-f27d08f6c30a";
                     string phoneNumber = "5579988566494";
-                    string contactPhoneNumber = informations.Telefone;
+                    string contactPhoneNumber = Program.Telefone;
                     string messageCustomId = "yoursoftwareid";
                     string messageType = "text";
                     string messageBody = $"Benchmarking: {NomeProduto}\n" +
@@ -60,13 +60,14 @@ namespace CrawlerDados.Send
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Status Code: {response.StatusCode}");
-                        Console.WriteLine($"Result: {result}");
                         LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Envio - Whatsapp", "Sucesso", idProduto);
+                        Console.WriteLine($"Mensagem enviada com sucesso! ");
+                        
                     }
                     else
                     {
-                        Console.WriteLine($"Erro: {response.StatusCode}");
+                    Console.WriteLine($"A mensagem não foi enviada para o whatsapp!");
+                    Console.WriteLine($"Erro: {response.StatusCode}");
                     }
                 }
             }

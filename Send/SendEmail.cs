@@ -49,6 +49,7 @@ public static class SendEmail
             // Enviar e-mail
             client.Send(mensagem);
             LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Envio - Email", "Sucesso", idProduto);
+            Console.WriteLine($"Email enviado com sucesso! ");
         }
     }
 }
