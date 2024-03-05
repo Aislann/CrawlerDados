@@ -41,7 +41,7 @@ namespace CrawlerDados.Utils
                         // Registra um log no banco de dados apenas se o produto for novo
                         if (!ProdutoManager.ProdutoJaRegistrado(produto.Id))
                         {
-                            LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Consultar Dados - Verificação", "Sucesso", produto.Id);
+                            LogManager.RegistrarLog("AO24", "AislanOliveira", DateTime.Now, "Consultar Dados - Verificação", "Sucesso", produto.Id);
 
                             MercadoLivreScraper mercadoLivreScraper = new MercadoLivreScraper();
                             MagazineLuizaScraper magazineLuizaScraper = new MagazineLuizaScraper();

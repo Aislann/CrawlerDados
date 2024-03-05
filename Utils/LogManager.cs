@@ -17,14 +17,14 @@ namespace CrawlerDados.Utils
             {
                 var log = new Log
                 {
-                    CodRob = codRob,
-                    UsuRob = usuRob,
+                    CodigoRobo = codRob,
+                    UsuarioRobo = usuRob,
                     DateLog = dateLog,
-                    Processo = processo,
-                    InfLog = infLog,
-                    IdProd = idProd
+                    Etapa = processo,
+                    InformacaoLog = infLog,
+                    IdProdutoAPI = idProd
                 };
-                context.Logs.Add(log);
+                context.LOGROBO.Add(log);
                 context.SaveChanges();
             }
         }

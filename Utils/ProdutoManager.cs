@@ -24,7 +24,7 @@ namespace CrawlerDados.Utils
         {
             using (var context = new LogContext())
             {
-                return context.Logs.Any(log => log.IdProd == idProduto);
+                return context.LOGROBO.Any(log => log.IdProdutoAPI == idProduto && log.CodigoRobo == "AO24");
             }
         }
     }

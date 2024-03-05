@@ -42,13 +42,13 @@ public static class SendEmail
                        "Melhor compra:" +
                        $"\n{melhorCompra} - {urlProduto}\n" +
                        $"\n" +
-                       $"0000001177\n" +
+                       $"AO24\n" +
                        $"Usuário: AislanOliveira"
             };
 
             // Enviar e-mail
             client.Send(mensagem);
-            LogManager.RegistrarLog("0000001177", "AislanOliveira", DateTime.Now, "Envio - Email", "Sucesso", idProduto);
+            LogManager.RegistrarLog("AO24", "AislanOliveira", DateTime.Now, "Envio - Email", "Sucesso", idProduto);
             Console.WriteLine($"Email enviado com sucesso! ");
         }
     }
