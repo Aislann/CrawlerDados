@@ -15,7 +15,6 @@ namespace CrawlerDados.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Data source=DESKTOP-CK9G4U8\\SQLEXPRESS; Initial Catalog=WebScraping; Trusted_Connection=TRUE;");
             optionsBuilder.UseSqlServer(
                 @"Data Source=SQL9001.site4now.net;" +
                 "Initial Catalog=db_aa5b20_apialmoxarifado;" +
